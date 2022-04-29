@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PickMapper">		
+
+	<resultMap type="pick" id="pickSelectMap">
+		<result property="buyer.userId"  column="BUYER_ID" jdbcType="VARCHAR"/>
+		<result property="pickProd.prodNo" column="PROD_NO" jdbcType="INTEGER"/>
+	</resultMap>
+
+	<insert id="addPick" parameterType="pick">
+		INSERT
+		INTO pick VALUES( 
+			#{buyer.userId:VARCHAR},#{pickProd.prodNo:INTEGER} )
+	</insert>
+	
+	<select id="getPickList" parameterType="map" resultMap="pickSelectMap">
+		SELECT *
+	  	FROM (	SELECT inner_table.* , ROWNUM AS row_seq
+	  					FROM		(	SELECT *
+											FROM pick
+											<where>
+												 buyer_id=#{buyerId}
+											</where> 
+										) inner_table
+						WHERE ROWNUM &lt;= #{endRowNum} )
+		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
+	</select>
+	
+	<delete id="deletePick" parameterType="int">
+		DELETE
+		FROM pick
+		<where>
+	  	prod_No=#{prodNo}
+	  	</where>
+	</delete>
+	
+	<select  id="getTotalCount"  parameterType="search"	 resultType="int">
+	  	SELECT COUNT(*)
+	  	FROM(	SELECT tran_no
+						FROM transaction 
+							) countTable						
+	 </select>
+
+</mapper>
