@@ -19,7 +19,7 @@
 	<script type="text/javascript">
 	
 	//fncGetProductList(currentPage)
-	function fncGetUserList(currentPage) {
+	function fncGetList(currentPage) {
 
 		$("#currentPage").val(currentPage)
 
@@ -209,7 +209,7 @@
 				<tr>
 					<td align="center"><input type="hidden" id="currentPage"
 						name="currentPage" value="" /> <jsp:include
-							page="../common/pageNavigator.jsp" /></td>
+							page="../common/pageNavigator_new.jsp" /></td>
 				</tr>
 			</table>
 			<!--  페이지 Navigator 끝 -->

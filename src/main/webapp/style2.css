@@ -1,0 +1,367 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style:none;
+} */
+body{
+     background:#111; 
+     color:#999; 
+
+
+}
+/*                 */
+/* Common Elements */
+/*                 */
+
+h1 {
+    margin: 1rem 1rem 1rem 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+h1.no-back-layer {
+    margin-top: 2rem;
+}
+
+hr {
+    display: block;
+    border: 0.1rem solid var(--color-dark-grey);
+    background-color: var(--color-dark-grey);
+    margin: 1rem;
+}
+
+.additional-desc-font-size {
+    font-size: 0.7rem;
+}
+
+.link_sentence {
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+
+.section__container {
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-container__intro {
+    padding: 1rem;
+}
+
+.section-container__content {
+    padding: 1rem;
+}
+
+
+
+/*         */
+/* navibar */
+/*         */
+#navibar {
+    position: fixed;
+    width: 100%;
+    padding: 1rem 1.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: transparent;
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+    
+}
+
+#navibar.float {
+    background-color: var(--color-blue-def4);
+    padding: 0.7rem;
+}
+.navibar__logo {
+    display: flex;
+    align-items: center;
+    color: var(--color-white-def1);
+    font-size: 1.7rem;
+}
+.navibar__logo__image {
+    margin: 0 1rem 0 0.5rem;
+}
+.navibar__logo__text {
+    font-size: 1.2rem;
+}
+.navibar__menu {
+    width: 65%;
+    display: flex;
+    justify-content: space-around;
+    color: var(--color-white-def1);
+    list-style: none;
+}
+.navibar__menu__item{
+    width: 18%;
+
+    margin: 0 1rem;
+    padding: 1rem 0;
+
+    font-weight: bold;
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.navibar__menu__item a{
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-w);
+}
+.navibar__menu__item:hover{
+    width: 25%;
+
+    border-radius: 10px;
+
+    text-align: center;
+    background-color: var(--color-blue-def1);
+}
+
+.navibar__menu-tg-btn {
+    position: absolute;
+    top: -5rem;
+    right: -5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.555rem;
+    color: var(--color-white);
+    display: none;
+}
+/*       */
+/* home? */
+/*       */
+#home {
+    background: url('../image/background/bg-start-sky.png') center/cover no-repeat;
+    padding-top: 10rem;
+
+    text-align: center;
+    color: var(--color-white);
+
+}
+.home__image img:last-child {
+    display:none;
+} 
+.home__image:hover img:first-child {
+    display:none;
+} 
+.home__image:hover img:last-child {
+    display:inline-block;
+}
+.face {
+    width: 15rem;
+    height: 15rem;
+
+    border-radius: 50%;
+    border: 3px solid var(--color-white);
+}
+
+.home__text {
+    margin: 1.2rem;
+    padding: 1.2rem;
+}
+.home__text__name {
+    font-size: 2.4rem;
+}
+.home__text__descript {
+    margin: 1rem 0 0.3rem 0;
+    font-size: 0.8rem;
+}
+/*      */
+/* Who? */
+/*      */
+.who__container {
+    background-color: var(--color-white);
+    max-width: 1250px;
+}
+
+.responsive-newline::before {
+    content:"\A"; /* \A = 줄바꿈 의미.*/
+    white-space:pre; /* <pre>와 같은 기능을 합니다. */
+}
+/*           */
+/* educareer */
+/*           */
+
+#educareer {
+    background-color: var(--color-yellow-def1);
+    font-size: 0.9rem;
+}
+.mainMenu{
+    list-style:none;
+    cursor: pointer;
+
+}
+.item{
+
+    overflow: hidden;
+}
+.btn{
+    display: block;
+    padding: 15px 20px;
+    background-color: #ff6f61;
+    color: #fff;
+    position: relative;
+
+}
+.btn:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right:8px solid transparent;
+    border-top:10px solid #ff6f61;
+    right: 15px;
+    bottom: -10px;
+    z-index: 9;
+    
+}
+.btn i {
+    margin-right: 10px;
+}
+.subMenu{
+    background: #273057;
+    overflow: hidden;
+    transition: max-height 0.7s;
+    max-height: 0;
+}
+.subMenu a{
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+    font-size: 14px;
+    border-bottom: 1px solid #394c7f;
+    position: relative;
+    
+}
+.subMenu a:before{
+    content: '';
+    opacity: 0;
+    transition: opacity 0.3s;
+
+}
+.subMenu a:hover:before{
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 6px;
+    left: 0;
+    top:0;
+    opacity: 1;
+
+}
+.subMenu a:after{
+    content: '';
+    opacity: 0;
+    transition: opacity 0.3s;
+
+}
+.subMenu a:hover:after{
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 6px;
+    right: 0px;
+    top:0;
+    opacity: 1;
+    border-top: 24px;
+    border-right: 11px ;
+    border-bottom: 24px;
+}
+.subMenu a:hover{
+    transition: all 0.3s;
+    border-bottom: 1px;
+}
+.subMenu a:last-child{
+    border:none;
+}
+.item:target .subMenu{
+    max-height: 10em;
+}
+
+
+
+
+
+.skills .inner{  
+    padding: 3rem 0;
+}
+.skills .inner .container{
+    /*border: 1px solid #000; */
+    padding: 2rem;
+    border: 2px solid #999;
+}
+.skills .inner h1{
+    text-transform: uppercase;
+    text-align: center;
+}
+.skills .inner .item{
+    /* border: 1px solid bluel */
+    margin-bottom: 0.5rem;
+}
+.skills .inner .item p span:first-child{
+    display: inline-block;
+    /*border: 1px solid gold; */
+    width: 100px;
+}
+.skills .inner .item .progress{
+    border: 1px solid white;
+    padding: 5px;
+}
+.skills .inner .item .progress-bar{
+    /*border: 1px solid white; */
+    height: 30px;
+    background: linear-gradient(to right, gold, red);
+    width: 70%;
+}
+.skills .inner .item:nth-of-type(1) .progress-bar{
+    width: 80%;
+}
+.skills .inner .item:nth-of-type(2) .progress-bar{
+    width: 30%;
+}
+.skills .inner .item:nth-of-type(3) .progress-bar{
+    width: 40%;
+}
+
+/*         */
+/* contact */
+/*         */
+
+#contact {
+    background-color: var(--color-blue-def4);
+}
+
+.contact__container {
+    color: var(--color-white);
+}
+
+.contact__element {
+    font-size: 3rem;
+    /* border: 0.5rem solid var(--color-white-def1); */
+    margin: 0.3rem;
+    padding: 0.3rem;
+}
+
+.contact__element:hover {
+    cursor: pointer;
+    font-size: 5rem;
+    border: 0.5rem solid orange;
+    margin: 0.3rem;
+    padding: 0.3rem;
+}
+
+.contact__rights {
+    margin: 1rem 0;
+    font-size: 0.8rem;
+}
+
+

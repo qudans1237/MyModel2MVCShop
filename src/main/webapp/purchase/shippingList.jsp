@@ -19,7 +19,7 @@
 	<script type="text/javascript">
 	
 
-function fncGetUserList(currentPage) {
+function fncGetList(currentPage) {
 	
 	$("#currentPage").val(currentPage)
    
@@ -194,7 +194,7 @@ $(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
 		<td align="center">
 		   <input type="hidden" id="currentPage" name="currentPage" value=""/>
 	
-			<jsp:include page="../common/pageNavigator.jsp"/>	
+			<jsp:include page="../common/pageNavigator_new.jsp"/>	
 			
     	</td>
 	</tr>

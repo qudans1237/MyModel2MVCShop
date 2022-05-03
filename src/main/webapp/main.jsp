@@ -33,6 +33,14 @@
             background-color: black;
             
         }
+        header{
+    	margin-top: 90px;
+  		text-align: center;
+  		display: flex;
+  		flex-direction: column;
+  		align-items: center;
+  		font-weight: 600;
+        }
       
    	</style>
    	
@@ -46,37 +54,46 @@
 	<!-- ToolBar Start /////////////////////////////////////-->
 	<jsp:include page="/layout/toolbar.jsp" />
    	<!-- ToolBar End /////////////////////////////////////-->
+   	<header>
 	<div id="carousel-example-generic" class="carousel slide " data-ride="carousel">
+       
         <ol class="carousel-indicators">
           <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
           <li data-target="#carousel-example-generic" data-slide-to="1"></li>
           <li data-target="#carousel-example-generic" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
-          <div class="item active col-md-12">
+          <div class="item active">
            <video width="300px" height="300px" src="/images/uploadFiles/Jellyfish.mp4"  controls autoplay muted loop></video>
           </div>
-          <div class="item col-md-12">
-            <img  src="/images/uploadFiles/보노보노1.jpg" width="300px" height="300px" alt="Second slide">
+          <div class="item">
+            <img  src="/images/uploadFiles/보노보노1.jpg" width="200px" height="200px" alt="Second slide">
           </div>
-          <div class="item col-md-12">
-            <img  src="/images/uploadFiles/보노보노.jpg" width="300px" height="300px" alt="Third slide">
+          <div class="item">
+            <img  src="/images/uploadFiles/보노보노.jpg" width="200px" height="200px" alt="Third slide">
           </div>
         </div>
+  
         </div>
-
+</header>
 	<!--  아래의 내용은 http://getbootstrap.com/getting-started/  참조 -->	
+	<section>
    	<div class="container ">
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Model2MVCShop </h1>
+        <div class="item active">
+           <video width="100px" height="100px" src="/images/uploadFiles/Jellyfish.mp4"  controls autoplay muted loop></video>
+          </div>
         <p>J2SE , DBMS ,JDBC , Servlet & JSP, Java Framework , HTML5 , UI Framework 학습 후 Mini-Project 진행</p>
      </div>
     </div>
+    </section>
 	<!-- https://m.blog.naver.com/skydoor2014/221667330746 -->
 	
 	<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/jdTsJzXmgU0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 	<!-- 참조 : http://getbootstrap.com/css/   : container part..... -->
+	<section>
 	<div class="container">
         <h3>나폴레옹은 이렇게 말했다.</h3>
         <p>"오늘 나의 불행은 언젠가 내가 잘못 보낸 시간의 보복이다."</p>
@@ -86,7 +103,7 @@
          <p>좋아하는 일을 하는 것이 아리라,</p>
          <p>지금 하는 일을 좋아하는 것입니다.</p>
   	 </div>
-
+</section>
 </body>
 
 </html>
