@@ -143,6 +143,7 @@
 		    </div>
 		    
 		    <div class="col-md-6 text-right">
+		    
 			    <form class="form-inline" name="detailForm">
 			    
 				  <div class="form-group">
