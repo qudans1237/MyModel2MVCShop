@@ -57,45 +57,44 @@ body {
 	});
 
 	$(function() {
+		$(".btn.btn-default").on(
+				"click",
+				function() {
+					//alert(  $(this).children("input").val().trim() );
+					var prodNo = $(this).children("input").val().trim();
+					$
+							.ajax({
+								url : "/product/json/getProduct/"
+										+ prodNo,
+								method : "GET",
+								dataType : "json",
+								headers : {
+									"Accept" : "application/json",
+									"Content-Type" : "application/json"
+								},
+								success : function(JSONData, status) {
 
-		$("td:nth-child(2)")
-				.on(
-						"click",
-						function() {
-							//alert(  $(this).children("input").val().trim() );
-							var prodNo = $(this).children("input").val().trim();
-							$
-									.ajax({
-										url : "/product/json/getProduct/"
-												+ prodNo,
-										method : "GET",
-										dataType : "json",
-										headers : {
-											"Accept" : "application/json",
-											"Content-Type" : "application/json"
-										},
-										success : function(JSONData, status) {
+									//	alert(status);
+									// 	alert("JSONData : \n"+JSONData.prodNo);
 
-											//	alert(status);
-											// 	alert("JSONData : \n"+JSONData.prodNo);
+									var displayValue = "<h3>"
+											+ "제품번호 : "
+											+ JSONData.prodNo
+											+ "<br/>"
+											+ "재고 : "
+											+ JSONData.stock
+											+ "<br/>"
+											+ "상품이미지 : <img src=/images/uploadFiles/"+ JSONData.fileName+ "/ ><br/>"
+									"</h3>";
 
-											var displayValue = "<h3>"
-													+ "제품번호 : "
-													+ JSONData.prodNo
-													+ "<br/>"
-													+ "재고 : "
-													+ JSONData.stock
-													+ "<br/>"
-													+ "상품이미지 : <img src=/images/uploadFiles/"+ JSONData.fileName+ "/><br/>"
-											"</h3>";
+									//alert(displayValue);
+									$("h3").remove();
+									$("#" + prodNo + "").html(
+											displayValue);
+								}
+							});
+				});
 
-											//alert(displayValue);
-											$("h3").remove();
-											$("#" + prodNo + "").html(
-													displayValue);
-										}
-									});
-						});
 
 		$("td:nth-child(4)").on(
 				"click",
@@ -183,18 +182,7 @@ body {
 
 
 
-		<table class="table table-hover table-striped">
-			<thead>
-				<tr>
-					<th align="center">No</th>
-					<th align="left">상품명 (click:간략정보)</th>
-					<th align="left">가격</th>
-					<th align="left">상품상세정보(click:상세정보)</th>
-					<th align="left">현재상태</th>
-
-				</tr>
-			</thead>
-			<tbody>
+		
 
 				<c:set var="i" value="0" />
 				<c:forEach var="product" items="${list}">
@@ -204,37 +192,22 @@ body {
 							<div class="thumbnail">
 								<img src="/images/uploadFiles/${product.fileName}" width ="200px" height="200px" >
 								<div class="caption">
-									<h3> ${product.prodName }</h3>
-									<p>...</p>
+									<h2> ${product.prodName }</h2>
+									<h4> ${product.prodDetail}</h4>
 									<p>
-										<a href="#" class="btn btn-primary" role="button">Button</a> <a
-											href="#" class="btn btn-default" role="button">Button</a>
+										<a href="/product/getProduct?prodNo=${product.prodNo}&menu=${param.menu}  " class="btn btn-primary" role="button">상세정보</a> 
+										<a href="#" class="btn btn-default" data-abc="${product.prodNo}" id="jiandan" role="button"><input type="hidden" name="prodNo"
+							value="${product.prodNo }">Button</a>
 									</p>
+									<br/>
+									<p id="${product.prodNo}" colspan="11" bgcolor="D6D7D6" height="1"></p>
 								</div>
 							</div>
 					
 					</div>
-					<c:set var="i" value="${i+1 }" />
-					<tr>
-						<td align="center"><input type="hidden" name="prodNo"
-							value="${product.prodNo }">${i }</td>
-						<td align="left"><input type="hidden" name="prodNo"
-							value="${product.prodNo }"> ${product.prodName }</td>
-						<td align="left">${product.price }원</td>
-						<td align="left"><input type="hidden" name="prodNo"
-							value="${product.prodNo }">${product.prodDetail }</td>
-						<td align="left"><c:if test="${product.stock!=0 }">판매중</c:if>
-							<c:if
-								test="${product.stock==0 && (empty user ||  empty product.proTranCode || !empty user)}">
-							품절</c:if></td>
-					</tr>
-					<tr>
-						<td id="${product.prodNo}" colspan="11" bgcolor="D6D7D6"
-							height="1"></td>
-					</tr>
+					
 				</c:forEach>
-			</tbody>
-		</table>
+		
 
 	</div>
 	<!--  화면구성 div End /////////////////////////////////////-->
