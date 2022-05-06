@@ -69,13 +69,13 @@ $(function() {
 	});
 	
 	$( ".ct_list_pop td:nth-child(9):contains('배송하기')" ).on("click" , function() {
-		alert("배송하기 버튼 " +$(this).children("input").val());
-		self.location ="/purchase/updateTranCodeByProd?menu=manage&prodNo="+$(this).children("input").val()+"&tranCode=2";
+		alert("배송하기 버튼 " +$(this).children("input").val()+"TranNo "+$(this).children("#tranNo").val());
+		self.location ="/purchase/updateTranCodeByProd?menu=manage&tranNo="+$(this).children("#tranNo").val()+"&prodNo="+$(this).children("input").val()+"&tranCode=2";
 	});
 
 	$( ".ct_list_pop td:nth-child(11):contains('주문취소')"  ).on("click" , function() {
-		alert("주문취소 버튼 " +$(this).children("input").val());
-		self.location ="/purchase/updateTranCodeByProd?menu=manage&prodNo="+$(this).children("input").val()+"&tranCode=4";
+		alert("주문취소 버튼 " +$(this).children("input").val()+"TranNo "+$(this).children("#tranNo").val());
+		self.location ="/purchase/updateTranCodeByProd?menu=manage&tranNo="+$(this).children("#tranNo").val()+"&prodNo="+$(this).children("input").val()+"&tranCode=4";
 	});
 
 $( ".ct_list_pop td:nth-child(1)" ).css("color" , "red");
@@ -161,6 +161,7 @@ $(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
 					<c:if test="${user.role=='admin' && param.menu=='manage'}">구매완료 상태 입니다.
 					<h8>배송하기</h8>
 					<input type="hidden" name="prodNo" value="${purchase.purchaseProd.prodNo}" />
+					<input type="hidden" id="tranNo"  value="${purchase.tranNo }" />
 					</c:if>
 				</c:if>
 				
@@ -178,7 +179,9 @@ $(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
 			</td>	
 			<td></td>
 			<td align="left"><c:if test="${! empty purchase.purchaseProd.proTranCode && purchase.purchaseProd.proTranCode=='1  '}">
-			<h8>주문취소</h8><input type="hidden" name="prodNo" value="${purchase.purchaseProd.prodNo }" /></c:if>
+			<h8>주문취소</h8>
+			<input type="hidden" name="prodNo" value="${purchase.purchaseProd.prodNo }" />
+			<input type="hidden" id="tranNo"  value="${purchase.tranNo }" /></c:if>
 			</td>
 		</tr>
 		<tr>

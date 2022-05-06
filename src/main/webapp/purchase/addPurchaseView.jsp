@@ -6,6 +6,7 @@
 <head>
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
+<script type="text/javascript" src="../javascript/calendar.js"></script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	

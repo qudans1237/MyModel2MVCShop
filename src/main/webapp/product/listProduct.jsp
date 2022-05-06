@@ -40,6 +40,7 @@
 body {
 	padding-top: 50px;
 }
+
 </style>
 
 <script type="text/javascript">
@@ -84,7 +85,11 @@ body {
 											+ "재고 : "
 											+ JSONData.stock
 											+ "<br/>"
-											+ "상품이미지 : <img src=/images/uploadFiles/"+ JSONData.fileName+ "/ ><br/>"
+											+ "가격 : "
+											+ JSONData.price
+											+ " 원"
+											+"<br/>"
+											+"<hr/>"
 									"</h3>";
 
 									//alert(displayValue);
@@ -170,7 +175,8 @@ body {
 							value="${! empty search.searchKeyword ? search.searchKeyword : '' }">
 					</div>
 
-					<button type="button" class="btn btn-default">검색</button>
+					<button type="button" class="btn btn-default">
+					검색</button>
 
 					<!-- PageNavigation 선택 페이지 값을 보내는 부분 -->
 					<input type="hidden" id="currentPage" name="currentPage" value="" />
@@ -188,16 +194,16 @@ body {
 				<c:forEach var="product" items="${list}">
 					<c:set var="i" value="${i+1 }" />
 					
-						<div class="col-sm-6 col-md-4">
+						<div class="col-sm-6 col-md-6">
 							<div class="thumbnail">
-								<img src="/images/uploadFiles/${product.fileName}" width ="200px" height="200px" >
+								<img src="/images/uploadFiles/${product.fileName}" width ="150px" height="150px" >
 								<div class="caption">
 									<h2> ${product.prodName }</h2>
 									<h4> ${product.prodDetail}</h4>
 									<p>
 										<a href="/product/getProduct?prodNo=${product.prodNo}&menu=${param.menu}  " class="btn btn-primary" role="button">상세정보</a> 
 										<a href="#" class="btn btn-default" data-abc="${product.prodNo}" id="jiandan" role="button"><input type="hidden" name="prodNo"
-							value="${product.prodNo }">Button</a>
+							value="${product.prodNo }">간략정보</a>
 									</p>
 									<br/>
 									<p id="${product.prodNo}" colspan="11" bgcolor="D6D7D6" height="1"></p>

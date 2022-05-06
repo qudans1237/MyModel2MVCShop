@@ -39,6 +39,7 @@
 	  body {
             padding-top : 50px;
         }
+        
     </style>
     
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
@@ -55,7 +56,7 @@
 		 $(function() {
 			 //==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			 //$( "button.btn.btn-default" ).on("click" , function() {
-			//	fncGetUserList(1);
+			//	fncGetList();
 			//});
 		 });
 		

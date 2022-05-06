@@ -33,7 +33,7 @@
             background-color: black;
             
         }
-        header{
+        header{x
     	margin-top: 90px;
   		text-align: center;
   		display: flex;
@@ -41,6 +41,7 @@
   		align-items: center;
   		font-weight: 600;
         }
+      
       
    	</style>
    	
@@ -82,9 +83,7 @@
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
         <h1>Model2MVCShop </h1>
-        <div class="item active">
-           <video width="100px" height="100px" src="/images/uploadFiles/Jellyfish.mp4"  controls autoplay muted loop></video>
-          </div>
+        <div class="item active"> </div>
         <p>J2SE , DBMS ,JDBC , Servlet & JSP, Java Framework , HTML5 , UI Framework 학습 후 Mini-Project 진행</p>
      </div>
     </div>
